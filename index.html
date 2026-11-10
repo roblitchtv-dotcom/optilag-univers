@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pétition : Optilag Univers sur Shibuya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07060d; --bg2:#100e1c; --ink:#f4f1ff; --mute:#9d97b8;
+    --pink:#ff2e88; --cyan:#22e4ff; --gold:#ffd166; --line:#2a2540;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+  a{color:var(--cyan)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(60% 50% at 80% 20%,rgba(255,46,136,.28),transparent 70%),
+      radial-gradient(50% 45% at 10% 90%,rgba(34,228,255,.22),transparent 70%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px);
+  }
+  .jp-big{position:absolute;right:-2vw;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;
+    font-family:"Noto Sans JP";font-weight:900;font-size:min(26vh,190px);line-height:1;
+    color:transparent;-webkit-text-stroke:1.5px rgba(255,46,136,.35);letter-spacing:.05em;user-select:none;pointer-events:none}
+  .hero-inner{position:relative;z-index:2;padding:80px 0}
+  .tag{display:inline-flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--cyan);border:1px solid rgba(34,228,255,.4);padding:7px 14px;border-radius:999px;background:rgba(34,228,255,.06)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink);animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+  h1{font-family:"Dela Gothic One",sans-serif;font-weight:400;font-size:clamp(46px,8.6vw,118px);line-height:.95;margin:26px 0 22px;letter-spacing:-.01em}
+  h1 .opt{display:block;background:linear-gradient(92deg,var(--pink),#ff7ac0 40%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 28px rgba(255,46,136,.35))}
+  h1 small{display:block;font-size:.34em;color:var(--mute);font-family:"Space Grotesk";font-weight:700;letter-spacing:.02em;margin-top:14px}
+  .lead{max-width:600px;font-size:19px;color:#d8d3ee}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
+  .btn{font:inherit;font-weight:700;font-size:17px;border:0;cursor:pointer;padding:16px 28px;border-radius:14px;
+    background:var(--pink);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 10px 40px -8px rgba(255,46,136,.7);transition:transform .15s,box-shadow .15s;text-decoration:none;display:inline-block}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 16px 50px -8px rgba(255,46,136,.9)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
+  .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+
+  /* counter */
+  .counter{margin-top:52px;display:flex;gap:26px;align-items:flex-end;flex-wrap:wrap}
+  .count-num{font-family:"Dela Gothic One";font-size:clamp(54px,9vw,96px);line-height:.9;color:var(--gold);text-shadow:0 0 30px rgba(255,209,102,.35)}
+  .count-lbl{color:var(--mute);font-size:15px;padding-bottom:10px}
+  .count-lbl b{color:var(--ink);display:block;font-size:18px}
+  .bar{height:10px;width:min(460px,100%);background:#1b1730;border-radius:99px;overflow:hidden;margin-top:12px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--cyan));border-radius:99px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{background:var(--pink);color:#12000a;overflow:hidden;white-space:nowrap;font-family:"Dela Gothic One";font-size:22px;padding:14px 0;transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:3}
+  .marquee span{display:inline-block;animation:slide 28s linear infinite;padding-right:40px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:110px 0}
+  .eyebrow{color:var(--pink);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:13px}
+  h2{font-family:"Dela Gothic One";font-weight:400;font-size:clamp(34px,5vw,58px);line-height:1.02;margin:12px 0 18px}
+  .sub{color:var(--mute);max-width:620px;font-size:17px}
+
+  .reasons{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:54px}
+  .card{background:linear-gradient(180deg,var(--bg2),#0b0a15);border:1px solid var(--line);border-radius:22px;padding:30px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:rgba(255,46,136,.55);transform:translateY(-3px)}
+  .card .n{font-family:"Dela Gothic One";font-size:15px;color:var(--cyan);letter-spacing:.1em}
+  .card h3{font-size:24px;margin:10px 0 10px;line-height:1.15}
+  .card p{color:#bdb6d8;font-size:15.5px}
+  .card .kanji{position:absolute;right:16px;bottom:-14px;font-family:"Noto Sans JP";font-weight:900;font-size:110px;color:rgba(255,255,255,.035);line-height:1}
+  .c-wide{grid-column:span 7}.c-mid{grid-column:span 5}.c-third{grid-column:span 4}
+  .card.feature{background:radial-gradient(120% 120% at 0% 0%,rgba(255,46,136,.22),transparent 60%),var(--bg2)}
+  .card.feature h3{font-size:34px}
+  .stat{display:flex;gap:30px;margin-top:22px;flex-wrap:wrap}
+  .stat div{font-size:13px;color:var(--mute)}
+  .stat b{display:block;font-family:"Dela Gothic One";font-size:30px;color:var(--ink);font-weight:400}
+
+  /* quote */
+  .quote{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(34,228,255,.06),transparent)}
+  .quote blockquote{font-family:"Dela Gothic One";font-size:clamp(26px,3.6vw,42px);line-height:1.2;max-width:900px}
+  .quote blockquote em{font-style:normal;color:var(--cyan)}
+  .quote cite{display:block;margin-top:20px;color:var(--mute);font-style:normal}
+
+  /* ---------- SIGN ---------- */
+  .sign-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;margin-top:40px;align-items:start}
+  form{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:32px}
+  label{display:block;font-weight:700;font-size:14px;margin:0 0 8px;letter-spacing:.02em}
+  input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#0a0913;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:20px;outline:none;transition:border-color .15s}
+  input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+  textarea{resize:vertical;min-height:90px}
+  .hint{font-size:13px;color:var(--mute);margin-top:14px}
+  .msg{margin-top:16px;padding:14px 16px;border-radius:12px;font-size:15px;display:none}
+  .msg.ok{display:block;background:rgba(34,228,255,.1);border:1px solid rgba(34,228,255,.4)}
+  .msg.err{display:block;background:rgba(255,46,136,.1);border:1px solid rgba(255,46,136,.45)}
+  .copybox{margin-top:12px;display:none}
+  .copybox pre{white-space:pre-wrap;background:#0a0913;border:1px dashed var(--line);border-radius:12px;padding:14px;font-size:14px;color:#d8d3ee;margin-bottom:10px}
+
+  .wall h3{font-size:18px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+  .wall h3 span{font-size:13px;color:var(--mute);font-weight:500}
+  .sigs{display:flex;flex-direction:column;gap:10px;max-height:560px;overflow:auto;padding-right:4px}
+  .sig{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;animation:pop .35s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(6px)}}
+  .sig b{display:block}
+  .sig .why{font-size:12px;color:var(--pink);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+  .sig p{color:#bdb6d8;font-size:14.5px;margin-top:4px;word-wrap:break-word}
+  .empty{color:var(--mute);border:1px dashed var(--line);border-radius:14px;padding:24px;text-align:center}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--mute);font-size:14px}
+
+  @media (max-width:860px){
+    .c-wide,.c-mid,.c-third{grid-column:span 12}
+    .sign-grid{grid-template-columns:1fr}
+    .jp-big{opacity:.5}
+    section{padding:80px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="jp-big" aria-hidden="true">渋谷宇宙</div>
+  <div class="wrap hero-inner">
+    <span class="tag"><i class="dot"></i> Pétition officielle · Shibuya</span>
+    <h1>Faisons d'<span class="opt">OPTILAG</span>l'Univers de Shibuya<small>Un serveur, une légende, un seul rôle à sa hauteur.</small></h1>
+    <p class="lead">Certains membres participent. D'autres <em>deviennent</em> le serveur. Il est temps de donner à Optilag le rôle qu'il porte déjà dans le cœur de tout Shibuya : <strong>Univers</strong>.</p>
+    <div class="cta-row">
+      <a class="btn" href="#signer">✍️ Je signe la pétition</a>
+      <a class="btn ghost" href="#raisons">Pourquoi Optilag ?</a>
+    </div>
+    <div class="counter">
+      <div class="count-num">∞</div>
+      <div>
+        <div class="count-lbl"><b>d'aura</b>7 raisons · 1 rôle · 0 excuse pour ne pas signer</div>
+        <div class="bar"><i style="width:100%"></i></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><span>OPTILAG UNIVERS ✦ 渋谷 ✦ CHARISME ILLIMITÉ ✦ PING 0 MS ✦ AURA MAXIMALE ✦ SIGNE MAINTENANT ✦ OPTILAG UNIVERS ✦ 渋谷 ✦ CHARISME ILLIMITÉ ✦ PING 0 MS ✦ AURA MAXIMALE ✦ SIGNE MAINTENANT ✦ </span></div>
+
+<section id="raisons">
+  <div class="wrap">
+    <p class="eyebrow">Le dossier</p>
+    <h2>Pourquoi Optilag mérite<br>d'être Univers</h2>
+    <p class="sub">Nous avons rassemblé les preuves. Elles sont accablantes.</p>
+
+    <div class="reasons">
+      <article class="card feature c-wide">
+        <span class="n">01 — CHARISME</span>
+        <h3>Un charisme qui fait lag les autres</h3>
+        <p>Quand Optilag entre dans un salon vocal, le silence se fait. Pas par peur : par respect. Les micros se coupent d'eux-mêmes pour mieux écouter. Son aura dépasse la limite de bande passante autorisée par Discord.</p>
+        <div class="stat">
+          <div><b>∞</b>niveau d'aura</div>
+          <div><b>0 ms</b>temps de réponse</div>
+          <div><b>100 %</b>des vocaux animés</div>
+        </div>
+        <span class="kanji" aria-hidden="true">魅</span>
+      </article>
+
+      <article class="card c-mid">
+        <span class="n">02 — PRÉSENCE</span>
+        <h3>Toujours là, même quand il n'est pas là</h3>
+        <p>Optilag est connecté à des heures que la science ne sait pas expliquer. On le soupçonne d'exister dans plusieurs fuseaux horaires à la fois. C'est littéralement la définition d'un univers.</p>
+        <span class="kanji" aria-hidden="true">宇</span>
+      </article>
+
+      <article class="card c-third">
+        <span class="n">03 — VIBES</span>
+        <h3>Ambiance garantie</h3>
+        <p>Il transforme un « salut » en soirée et une soirée en souvenir. Le serveur a officiellement plus d'énergie quand il est en ligne.</p>
+        <span class="kanji" aria-hidden="true">気</span>
+      </article>
+
+      <article class="card c-third">
+        <span class="n">04 — SAGESSE</span>
+        <h3>Conseiller de l'ombre</h3>
+        <p>Problème de cœur, de PC ou d'existence : Optilag a déjà une réponse, et souvent un tuto. Il optimise tout, y compris ta vie.</p>
+        <span class="kanji" aria-hidden="true">智</span>
+      </article>
+
+      <article class="card c-third">
+        <span class="n">05 — LOYAUTÉ</span>
+        <h3>Shibuya dans le sang</h3>
+        <p>D'autres serveurs l'ont approché. Il a dit non. Sa loyauté envers Shibuya est plus solide que la connexion fibre du staff.</p>
+        <span class="kanji" aria-hidden="true">忠</span>
+      </article>
+
+      <article class="card c-mid">
+        <span class="n">06 — HUMOUR</span>
+        <h3>Le roi des punchlines</h3>
+        <p>Ses messages ont un taux de réaction de 340 %. Personne ne sait comment c'est mathématiquement possible. Personne n'ose poser la question.</p>
+        <span class="kanji" aria-hidden="true">笑</span>
+      </article>
+
+      <article class="card c-wide">
+        <span class="n">07 — LOGIQUE COSMIQUE</span>
+        <h3>Il est déjà l'Univers. Il manque juste le rôle.</h3>
+        <p>Tout le monde gravite autour de lui. Les nouveaux le trouvent en trois minutes. Les anciens le citent sans s'en rendre compte. Le rôle « Univers » ne lui donnerait rien de plus : il officialiserait simplement ce que Shibuya sait déjà.</p>
+        <span class="kanji" aria-hidden="true">宙</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap">
+    <blockquote>« On ne choisit pas l'Univers. <em>On le reconnaît.</em> »</blockquote>
+    <cite>— Un membre anonyme de Shibuya, 3 h du matin, en vocal</cite>
+  </div>
+</section>
+
+<section id="signer">
+  <div class="wrap">
+    <p class="eyebrow">Passe à l'action</p>
+    <h2>Signe pour Optilag Univers</h2>
+    <p class="sub">Remplis le formulaire, copie ta signature et poste-la sur le Discord de Shibuya. Plus il y en a, plus le staff devra céder.</p>
+
+    <div class="sign-grid">
+      <form id="form" novalidate>
+        <label for="name">Ton pseudo Shibuya</label>
+        <input id="name" maxlength="40" placeholder="ex. NeonSamurai" required>
+
+        <label for="why">Ta raison principale</label>
+        <select id="why">
+          <option>Charisme</option>
+          <option>Aura</option>
+          <option>Humour</option>
+          <option>Loyauté</option>
+          <option>Sagesse</option>
+          <option>Vibes</option>
+          <option>C'est l'Univers, point.</option>
+        </select>
+
+        <label for="msg">Un mot pour Optilag <span style="color:var(--mute);font-weight:400">(facultatif)</span></label>
+        <textarea id="msg" maxlength="200" placeholder="Dis au staff pourquoi il le mérite…"></textarea>
+
+        <button class="btn" type="submit" id="submit" style="width:100%">Signer la pétition</button>
+        <div class="msg" id="status" role="status"></div>
+        <div class="copybox" id="copybox">
+          <pre id="copytext"></pre>
+          <button class="btn ghost" type="button" id="copybtn">Copier pour Discord</button>
+        </div>
+      </form>
+
+      <div class="wall">
+        <h3>Comment ça marche</h3>
+        <div class="sigs">
+          <div class="sig"><span class="why">Étape 1</span><b>Remplis le formulaire</b><p>Ton pseudo, ta raison, un petit mot si tu veux.</p></div>
+          <div class="sig"><span class="why">Étape 2</span><b>Copie ta signature</b><p>Le bouton « Signer » prépare ton message et le copie.</p></div>
+          <div class="sig"><span class="why">Étape 3</span><b>Poste-la sur Shibuya</b><p>Colle-la dans le salon de la pétition sur Discord. Chaque message compte comme une signature.</p></div>
+          <div class="sig"><span class="why">Étape 4</span><b>Partage le lien</b><p>Envoie ce site à tes potes. L'Univers ne se construit pas seul.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Pétition de fans pour le serveur Shibuya · 渋谷 · Fait avec beaucoup trop d'amour pour Optilag.</div>
+</footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const status = $("status");
+  function text(){
+    const name=$("name").value.trim(), m=$("msg").value.trim();
+    return `✍️ ${name} signe la pétition : Optilag doit être UNIVERS sur Shibuya ! Raison : ${$("why").value}.${m?" « "+m+" »":""}
+👉 ${location.href.split("#")[0]}`;
+  }
+  async function copy(){
+    try{ await navigator.clipboard.writeText($("copytext").textContent); $("copybtn").textContent="Copié ✓"; return true; }
+    catch{ $("copybtn").textContent="Sélectionne le texte et copie-le"; return false; }
+  }
+  $("form").addEventListener("submit", async e => {
+    e.preventDefault();
+    if(!$("name").value.trim()){ status.textContent="Mets ton pseudo pour signer."; status.className="msg err"; $("name").focus(); return; }
+    $("copytext").textContent = text(); $("copybox").style.display="block"; $("copybtn").textContent="Copier pour Discord";
+    const ok = await copy();
+    status.textContent = ok ? "Signature copiée ! Colle-la maintenant sur le Discord de Shibuya ✦" : "Ta signature est prête : copie-la et colle-la sur le Discord de Shibuya ✦";
+    status.className="msg ok";
+  });
+  $("copybtn").addEventListener("click", copy);
+})();
+</script>
+</body>
+</html>
